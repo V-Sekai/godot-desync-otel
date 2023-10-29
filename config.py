@@ -2,7 +2,8 @@ import os
 import subprocess
 
 def can_build(env, platform):
-    return True
+    return platform in ['macos', 'linux', 'windows']
+
 
 def configure(env):
     try:
