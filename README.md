@@ -2,6 +2,8 @@
 
 The `cgo` feature in Go programming allows you to call C code from Go and vice versa. This can be used to provide a C interface for the `desync` Go library.
 
+You need to ensure that Go is installed on your system and on CICD
+
 ## Updating the C Interface
 
 To expose the output directory and the cache directory, you can modify the `DesyncUntar` function to accept these as parameters. Here's how you could do it:
