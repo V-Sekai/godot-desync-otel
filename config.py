@@ -1,8 +1,9 @@
 import os
 import subprocess
 
+
 def can_build(env, platform):
-    return platform in ['macos', 'linux', 'windows']
+    return platform in ["macos", "linux", "windows"]
 
 
 def get_doc_classes():

@@ -2,7 +2,7 @@ import subprocess
 import os
 from os.path import abspath, dirname
 
-Import('env')
+Import("env")
 
 thirdparty_obj = []
 
@@ -15,15 +15,25 @@ if env.msvc:
     env_desync.Append(CPPDEFINES=["_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING"])
     suffix = ".lib"
 runtime = "desync_c_interface"
-subprocess.run(["go", "build", "-o", f'../../../../lib{runtime}{suffix}', "-buildmode=c-archive", "."], check=True)
+subprocess.run(
+    [
+        "go",
+        "build",
+        "-o",
+        f"../../../../lib{runtime}{suffix}",
+        "-buildmode=c-archive",
+        ".",
+    ],
+    check=True,
+)
 # https://github.com/ashtonmeuser/godot-wasm/blob/master/SCsub#L44C58-L48C1
-os.chdir(current_dir) 
+os.chdir(current_dir)
 
 env["LIBRUNTIMESUFFIX"] = ".a"
 
 runtime_lib = env.File(
     "{prefix}{runtime}{suffix}".format(
-        runtime=f'{runtime}',
+        runtime=f"{runtime}",
         prefix=env["LIBPREFIX"],
         suffix=env.get("LIBRUNTIMESUFFIX", env["LIBSUFFIX"]),
     )
