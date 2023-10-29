@@ -10,14 +10,15 @@ current_dir = os.getcwd()
 desync_dir = os.path.join(current_dir, "thirdparty/desync/cmd/desync")
 os.chdir(desync_dir)
 suffix = ".a"
+env_desync = env.Clone()
 if env.msvc:
+    env_desync.Append(CPPDEFINES=["_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING"])
     suffix = ".lib"
 runtime = "desync_c_interface"
 subprocess.run(["go", "build", "-o", f'../../../../lib{runtime}{suffix}', "-buildmode=c-archive", "."], check=True)
 # https://github.com/ashtonmeuser/godot-wasm/blob/master/SCsub#L44C58-L48C1
 os.chdir(current_dir) 
 
-env_desync = env.Clone()
 env["LIBRUNTIMESUFFIX"] = ".a"
 
 runtime_lib = env.File(
