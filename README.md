@@ -2,8 +2,6 @@
 
 The `cgo` feature in Go programming allows you to call C code from Go and vice versa. This can be used to provide a C interface for the `desync` Go library.
 
-You need to ensure that Go is installed on your system and on CICD
-
 ## Updating the C Interface
 
 To expose the output directory and the cache directory, you can modify the `DesyncUntar` function to accept these as parameters. Here's how you could do it:
@@ -49,12 +47,6 @@ func DesyncUntar(storeUrl *C.char, indexUrl *C.char, outputDir *C.char, cacheDir
 }
 ```
 
-You can build this Go package into a C static library with the following command:
-
-```go
-go build -o desync_c_interface.a -buildmode=c-archive .
-```
-
 ## Using the Updated Static Library in C Program
 
 You can then call this function from your C program like this:
@@ -77,10 +69,20 @@ int main() {
 
 In this C code, the `DesyncUntar` function is called with four parameters: the store URL, the index URL, the output directory, and the cache directory.
 
-## Build and execute
+## Build and execute (Macos Edition)
 
 ```bash
 gcc untar/cgo_untar.c desync_c_interface.a -o cgo_untar -framework CoreFoundation -framework Security -lresolv
 chmod +x cgo_untar
 ./cgo_untar
 ```
+
+## Creating a C Binary
+
+You can build this Go package into a C static library with the following command:
+
+```go
+go build -o desync_c_interface.a -buildmode=c-archive .
+```
+
+Please ensure that Go is installed on your system and on CICD for this to work.
