@@ -39,7 +39,7 @@ runtime_lib = env.File(
     )
 )
 env.Append(LIBS=[runtime_lib])
-if env["platform"] == "osx":
+if env["platform"] == "macos":
     env.Append(LIBS=["resolv"])
 
 env_desync.add_source_files(env.modules_sources, "*.cpp")
