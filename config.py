@@ -20,7 +20,7 @@ def can_build(env, platform):
     elif platform == "macos":
         if env.get("arch", "") == "x86_64":
             return False
-    return platform in ["linux", "windows"]
+    return True
 
 
 def get_doc_classes():
