@@ -28,10 +28,8 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-/* summator.h */
-
-#ifndef SUMMATOR_H
-#define SUMMATOR_H
+#ifndef DESYNC_H
+#define DESYNC_H
 
 #include "core/error/error_list.h"
 #include "core/object/ref_counted.h"
@@ -59,4 +57,4 @@ public:
 	Desync();
 };
 
-#endif // SUMMATOR_H
+#endif // DESYNC_H

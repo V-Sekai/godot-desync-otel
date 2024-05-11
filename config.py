@@ -18,7 +18,7 @@ def can_build(env, platform):
             return False
         return True
     elif platform == "macos":
-        if env.get('arch', '') == 'x86_64':
+        if env.get("arch", "") == "x86_64":
             return False
     return platform in ["linux", "windows"]
 
