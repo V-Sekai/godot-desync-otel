@@ -10,7 +10,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-
 func TestInfoCommand(t *testing.T) {
 	for _, test := range []struct {
 		name           string
@@ -56,11 +55,11 @@ func TestInfoCommand(t *testing.T) {
 				"unique": 131,
 				"in-store": 131,
 				"in-seed": 124,
-				"in-cache": 25,
-				"not-in-seed-nor-cache": 7,
+				"in-cache": 18,
+				"not-in-seed-nor-cache": 5,
 				"size": 2097152,
 				"dedup-size-not-in-seed": 80029,
-				"dedup-size-not-in-seed-nor-cache": 80029,
+				"dedup-size-not-in-seed-nor-cache": 67099,
 				"chunk-size-min": 2048,
 				"chunk-size-avg": 8192,
 				"chunk-size-max": 32768
@@ -72,11 +71,11 @@ func TestInfoCommand(t *testing.T) {
 				"unique": 131,
 				"in-store": 131,
 				"in-seed": 0,
-				"in-cache": 25,
-				"not-in-seed-nor-cache": 106,
+				"in-cache": 18,
+				"not-in-seed-nor-cache": 113,
 				"size": 2097152,
 				"dedup-size-not-in-seed": 1114112,
-				"dedup-size-not-in-seed-nor-cache": 853943,
+				"dedup-size-not-in-seed-nor-cache": 950410,
 				"chunk-size-min": 2048,
 				"chunk-size-avg": 8192,
 				"chunk-size-max": 32768

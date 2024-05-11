@@ -2,8 +2,9 @@ package desync
 
 import (
 	"context"
-	"golang.org/x/sync/errgroup"
 	"os"
+
+	"golang.org/x/sync/errgroup"
 )
 
 // SeedSequencer is used to find sequences of chunks from seed files when assembling
@@ -25,8 +26,6 @@ type SeedSegmentCandidate struct {
 }
 
 type Plan []SeedSegmentCandidate
-
-var MockValidate = false
 
 // NewSeedSequencer initializes a new sequencer from a number of seeds.
 func NewSeedSequencer(idx Index, src ...Seed) *SeedSequencer {
@@ -78,7 +77,7 @@ func (r *SeedSequencer) Rewind() {
 	r.current = 0
 }
 
-//isFileSeed returns true if this segment is pointing to a fileSeed
+// isFileSeed returns true if this segment is pointing to a fileSeed
 func (s SeedSegmentCandidate) isFileSeed() bool {
 	// We expect an empty filename when using nullSeeds
 	return s.source != nil && s.source.FileName() != ""
@@ -110,10 +109,6 @@ func (p Plan) Validate(ctx context.Context, n int, pb ProgressBar) (err error) {
 		in      = make(chan Job)
 		fileMap = make(map[string]*os.File)
 	)
-	if MockValidate {
-		// This is used in the automated tests to mock a plan that is valid
-		return nil
-	}
 	length := 0
 	for _, s := range p {
 		if !s.isFileSeed() {
