@@ -1,4 +1,4 @@
-# Godot Engine Open Telemetry
+# Godot Engine Open Telemetry & Desync (casync protocol)
 
 ```gdscript
 extends Node3D
