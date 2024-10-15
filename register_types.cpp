@@ -36,7 +36,7 @@
 #include "core/object/class_db.h"
 #include "open_telemetry.h"
 
-void initialize_golang_module(ModuleInitializationLevel p_level) {
+void initialize_desync_otel_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
@@ -44,7 +44,7 @@ void initialize_golang_module(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<OpenTelemetry>();
 }
 
-void uninitialize_golang_module(ModuleInitializationLevel p_level) {
+void uninitialize_desync_otel_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
