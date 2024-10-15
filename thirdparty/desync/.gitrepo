@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/V-Sekai/desync.git
 	branch = main
-	commit = 8b0ecf3c36dd36120e2e5f0fa2252e77e6631426
-	parent = e41392826be80a8a3ce68721efb123fa8bbd58fc
+	commit = 427d7af35fb02c41baa3825b3ac7a9d40afc3486
+	parent = 2840a8e49d26186609e05c22383e3342a338b93a
 	method = merge
 	cmdver = 0.4.6
